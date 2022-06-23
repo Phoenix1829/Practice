@@ -95,7 +95,7 @@ namespace Calculator
             }
             if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && e.KeyChar != 44 && e.KeyChar != 45) // цифры, BackSpace, минус и запятая
             {
-                e.Handled = true;
+                e.Handled = true; //qwerty
             }
         }
     }
