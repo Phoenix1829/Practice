@@ -65,6 +65,34 @@ namespace Calculator
             }
         }
 
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if ((textBox1.Text != "") && (textBox2.Text != ""))
+            {
+                double a = Convert.ToDouble(textBox1.Text);
+                double b = Convert.ToDouble(textBox2.Text);
+                if (b != 0)
+                {
+                    double result = Math.Pow(a, b);
+                    textBox3.Text = result.ToString();
+                }
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if ((textBox1.Text != "") && (textBox2.Text != ""))
+            {
+                double a = Convert.ToDouble(textBox1.Text);
+                double b = Convert.ToDouble(textBox2.Text);
+                if (b != 0)
+                {
+                    double result = a % b;
+                    textBox3.Text = result.ToString();
+                }
+            }
+        }
+
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             char number = e.KeyChar;
@@ -95,8 +123,20 @@ namespace Calculator
             }
             if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && e.KeyChar != 44 && e.KeyChar != 45) // цифры, BackSpace, минус и запятая
             {
-                e.Handled = true; //qwerty
+                e.Handled = true;
             }
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+    
     }
 }
