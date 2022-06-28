@@ -13,6 +13,7 @@ namespace Calculator
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
@@ -24,7 +25,7 @@ namespace Calculator
             {
                 double a = Convert.ToDouble(textBox1.Text);
                 double b = Convert.ToDouble(textBox2.Text);
-                double result = a + b;
+                double result = Operations.Sum(a, b);
                 textBox3.Text = result.ToString();
             }
         }
@@ -35,7 +36,7 @@ namespace Calculator
             {
                 double a = Convert.ToDouble(textBox1.Text);
                 double b = Convert.ToDouble(textBox2.Text);
-                double result = a - b;
+                double result = Operations.Diff(a, b);
                 textBox3.Text = result.ToString();
             }
         }
@@ -46,7 +47,7 @@ namespace Calculator
             {
                 double a = Convert.ToDouble(textBox1.Text);
                 double b = Convert.ToDouble(textBox2.Text);
-                double result = a * b;
+                double result = Operations.Mult(a, b);
                 textBox3.Text = result.ToString();
             }
         }
@@ -59,13 +60,13 @@ namespace Calculator
                 double b = Convert.ToDouble(textBox2.Text);
                 if (b != 0)
                 {
-                    double result = a / b;
+                    double result = Operations.Div(a, b);
                     textBox3.Text = result.ToString();
                 }
             }
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
             if ((textBox1.Text != "") && (textBox2.Text != ""))
             {
@@ -73,13 +74,13 @@ namespace Calculator
                 double b = Convert.ToDouble(textBox2.Text);
                 if (b != 0)
                 {
-                    double result = Math.Pow(a, b);
+                    double result = Operations.Step(a, b);
                     textBox3.Text = result.ToString();
                 }
             }
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)
         {
             if ((textBox1.Text != "") && (textBox2.Text != ""))
             {
@@ -87,7 +88,7 @@ namespace Calculator
                 double b = Convert.ToDouble(textBox2.Text);
                 if (b != 0)
                 {
-                    double result = a % b;
+                    double result = Operations.Ostat(a, b);
                     textBox3.Text = result.ToString();
                 }
             }
@@ -126,17 +127,5 @@ namespace Calculator
                 e.Handled = true;
             }
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-    
     }
 }
