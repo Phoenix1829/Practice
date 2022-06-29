@@ -6,19 +6,71 @@ using System.Threading.Tasks;
 
 namespace Calculator
 {
+    interface ITwoArgumentsCalculator
+    {
+        double Calculate(double x, double y);
+    }
+
     public class Operations
     {
-        public static double Sum(double x, double y) => x + y;
+        public class Sum : ITwoArgumentsCalculator
+        {
+            public double Calculate(double a, double b) => a + b;
 
-        public static double Diff(double x, double y) => x - y;
+        }
 
-        public static double Mult(double x, double y) => x * y;
+        public class Diff : ITwoArgumentsCalculator
+        {
 
-        public static double Div(double x, double y) => x / y;
+            public double Calculate(double a, double b) => a - b;
 
-        public static double Step(double x, double y) => Math.Pow(x, y);
+        }
+        public class Mult : ITwoArgumentsCalculator
+        {
 
-        public static double Ostat(double x, double y) => x % y;
+            public double Calculate(double a, double b) => a * b;
 
+        }
+        public class Div : ITwoArgumentsCalculator
+        {
+
+            public double Calculate(double a, double b) => a / b;
+
+        }
+        public class Pow : ITwoArgumentsCalculator
+        {
+            public double Calculate(double a, double b) => Math.Pow(a, b);
+
+        }
+
+        public class Ostat : ITwoArgumentsCalculator
+        {
+            public double Calculate(double a, double b) => a % b;
+
+        }
+    }
+
+    class TwoArgumentsFactory
+    {
+        public static ITwoArgumentsCalculator Creator(string OperationName)
+        {
+            switch (OperationName)
+            {
+                case "Sum":
+                    return new Operations.Sum();
+                case "Diff":
+                    return new Operations.Diff();
+                case "Mult":
+                    return new Operations.Mult();
+                case "Div":
+                    return new Operations.Div();
+                case "Pow":
+                    return new Operations.Pow();
+                case "Ostat":
+                    return new Operations.Ostat();
+                default:
+                    throw new Exception();
+            }
+        }
     }
 }

@@ -19,40 +19,43 @@ namespace Calculator
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonSum_Click(object sender, EventArgs e)
         {
             if ((textBox1.Text != "") && (textBox2.Text != ""))
             {
                 double a = Convert.ToDouble(textBox1.Text);
                 double b = Convert.ToDouble(textBox2.Text);
-                double result = Operations.Sum(a, b);
+                ITwoArgumentsCalculator calculator = TwoArgumentsFactory.Creator("Sum");
+                double result = calculator.Calculate(a, b);
                 textBox3.Text = result.ToString();
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonDiff_Click(object sender, EventArgs e)
         {
             if ((textBox1.Text != "") && (textBox2.Text != ""))
             {
                 double a = Convert.ToDouble(textBox1.Text);
                 double b = Convert.ToDouble(textBox2.Text);
-                double result = Operations.Diff(a, b);
+                ITwoArgumentsCalculator calculator = TwoArgumentsFactory.Creator("Diff");
+                double result = calculator.Calculate(a, b);
                 textBox3.Text = result.ToString();
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonMult_Click(object sender, EventArgs e)
         {
             if ((textBox1.Text != "") && (textBox2.Text != ""))
             {
                 double a = Convert.ToDouble(textBox1.Text);
                 double b = Convert.ToDouble(textBox2.Text);
-                double result = Operations.Mult(a, b);
+                ITwoArgumentsCalculator calculator = TwoArgumentsFactory.Creator("Mult");
+                double result = calculator.Calculate(a, b);
                 textBox3.Text = result.ToString();
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void buttonDiv_Click(object sender, EventArgs e)
         {
             if ((textBox1.Text != "") && (textBox2.Text != ""))
             {
@@ -60,13 +63,14 @@ namespace Calculator
                 double b = Convert.ToDouble(textBox2.Text);
                 if (b != 0)
                 {
-                    double result = Operations.Div(a, b);
+                    ITwoArgumentsCalculator calculator = TwoArgumentsFactory.Creator("Div");
+                    double result = calculator.Calculate(a, b);
                     textBox3.Text = result.ToString();
                 }
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void buttonPow_Click(object sender, EventArgs e)
         {
             if ((textBox1.Text != "") && (textBox2.Text != ""))
             {
@@ -74,13 +78,14 @@ namespace Calculator
                 double b = Convert.ToDouble(textBox2.Text);
                 if (b != 0)
                 {
-                    double result = Operations.Step(a, b);
+                    ITwoArgumentsCalculator calculator = TwoArgumentsFactory.Creator("Pow");
+                    double result = calculator.Calculate(a, b);
                     textBox3.Text = result.ToString();
                 }
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void buttonOstat_Click(object sender, EventArgs e)
         {
             if ((textBox1.Text != "") && (textBox2.Text != ""))
             {
@@ -88,7 +93,8 @@ namespace Calculator
                 double b = Convert.ToDouble(textBox2.Text);
                 if (b != 0)
                 {
-                    double result = Operations.Ostat(a, b);
+                    ITwoArgumentsCalculator calculator = TwoArgumentsFactory.Creator("Ostat");
+                    double result = calculator.Calculate(a, b);
                     textBox3.Text = result.ToString();
                 }
             }
